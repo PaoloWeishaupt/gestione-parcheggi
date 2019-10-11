@@ -10,7 +10,7 @@ create table parametri(
 );
 
 create table ruolo(
-    nome varchar(50) primary key,
+    nome varchar(50) primary key
 );
 
 create table utente(
@@ -33,7 +33,7 @@ create table posteggio(
     id int primary key,
     disponibilita varchar(50),
     data_disp datetime,
-    n_targa varchar(8),
+    n_targa varchar(9),
     id_utente int,
     foreign key(id_utente) references utente(id)
 );
@@ -47,7 +47,7 @@ create table prenotazione(
     id_parametri int,
     foreign key(id_utente) references utente(id),
     foreign key(id_posteggio) references posteggio(id),
-    foreign key(id_parametri) references parametri(id),
+    foreign key(id_parametri) references parametri(id)
 );
 
 insert into parametri (id, n_posteggi, costo, data_aggiornamento) values (1, 100, 10, current_timestamp);
