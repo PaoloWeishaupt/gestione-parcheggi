@@ -25,6 +25,7 @@ class LoginModel
             $_SESSION['user_id'] = $result['id'];
             $_SESSION['ruolo'] = $result['ruolo'];
             $_SESSION['nome'] = $result['nome'];
+            $_SESSION['id_posteggio'] = $result['id_posteggio'];
             //var_dump($result['nome']);
             return true;
         } else {
