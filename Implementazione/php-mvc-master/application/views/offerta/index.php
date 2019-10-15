@@ -144,10 +144,10 @@
                                 <input type="date" name="datepicker" class="form-control mb-4" value="<?php echo isset($_SESSION['selectedDate']) ? $_SESSION['selectedDate'] : ""; ?>" required>
 
                                 <label class="font-weight-bold text-light">Inserisci una targa:</label>
-                                <input type="text" name="car_plate" placeholder="AA-NNNNNN" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>">
+                                <input type="text" name="car_plate" placeholder="AA-NNNNNN" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">
 
                                 <!-- Offer button -->
-                                <button class="btn btn-success my-4" type="submit" value="Offri" name="offri" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">Offri</button>
+                                <button class="btn btn-success my-4" type="submit" value="Offri" name="offri">Offri</button>
 
                             </form>
                             <!-- Default form offer -->
