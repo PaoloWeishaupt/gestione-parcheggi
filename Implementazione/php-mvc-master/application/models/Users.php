@@ -8,7 +8,8 @@ class Users
 {
     public static function checkRuolo()
     {
-        if(isset($_SESSION['ruolo']) && $_SESSION['ruolo'] == 'admin'){
+        if(isset($_SESSION['ruolo']) && $_SESSION['ruolo'] == 'admin')
+        {
             return true;
         }
         return false;
@@ -17,7 +18,11 @@ class Users
 
     public static function hasParcheggio()
     {
-        
+        if(isset($_SESSION['id_posteggio']))
+        {
+            return true;
+        }
+        return false;
     }
 
 }
