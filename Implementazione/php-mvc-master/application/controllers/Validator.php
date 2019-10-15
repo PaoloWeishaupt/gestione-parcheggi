@@ -29,7 +29,9 @@ class Validator
         $inputDateFormat = date_format($inputDate, 'Y-m-d');
         $today = date('Y-m-d');
         
-        /*echo "Input date: ";
+        /*
+        For debug
+        echo "Input date: ";
         var_dump($inputDate);
         echo "Input date format: ";
         var_dump($inputDateFormat);
@@ -49,7 +51,7 @@ class Validator
     public static function validateCarPlate($element)
     {
         $_SESSION['carPlate'] = $element;
-        if(preg_match('/^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}+$/', self::testInput($element)))
+        if(preg_match('/^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}+$/', self::testInput($element)) || empty($element))
         {
             return $element;
         }
