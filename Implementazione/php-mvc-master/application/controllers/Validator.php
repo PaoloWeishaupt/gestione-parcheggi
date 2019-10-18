@@ -14,13 +14,56 @@ class Validator
         return trim(stripslashes(htmlspecialchars($element)));
     }
 
-    public static function validateInt($element)
+    public static function validateCAP($element)
     {
-        if(preg_match('/^[0-9]+$/', self::testInput($element)))
+        $_SESSION['validateCAP'] = $element;
+
+        $pattern = '/^\d{4,5}$/';
+        if(preg_match($pattern, self::testInput($element)))
         {
             return $element;
         }
-        return intval(self::testInput($element));
+
+        $_SESSION['CAPerror'] = "CAP errato";
+    }
+
+    public static function validateCharAndSpace($element)
+    {
+        $_SESSION['validateCharAndSpace'] = $element;
+
+        $pattern = '/^[a-zA-Zàáâäãåaccèéìínòóùú ,.\'-]+$/u';
+        if(preg_match($pattern, self::testInput($element)))
+        {
+            return $element;
+        }
+
+        $_SESSION['CharAndSpaceError'] = 'Non sono accettati numeri';
+    }
+
+    public static function validateVia($element)
+    {
+        $_SESSION['validateVia'] = $element;
+
+        $pattern = '/^[a-zA-Z ]* \d{1,3}[a-zA-Z]{0,1}+$/';
+        if(preg_match($pattern, self::testInput($element)))
+        {
+            return $element;
+        }
+
+        $_SESSION['viaError'] = 'Via errata';
+    }
+
+    public static function validatePhoneNumber($element)
+    {
+        $_SESSION['validatePhoneNumber'] = $element;
+
+        $pattern = '/^(\+41|0041|0){1}(\(0\))?[0-9]{9}$/';
+        if(preg_match($pattern, self::testInput($element)))
+        {
+            return $element;
+        }
+
+        $_SESSION['phoneError'] = 'Numero di telefono errato';
     }
 
     public static function validateDate($element)
