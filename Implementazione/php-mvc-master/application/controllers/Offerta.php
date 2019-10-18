@@ -8,6 +8,7 @@ use Controllers\Validator as Validator;
 use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
 use Libs\Auth as Auth;
+use Models\Users as Users;
 
 class Offerta
 {
@@ -34,6 +35,11 @@ class Offerta
 
             unset($_SESSION['dateError']);
             unset($_SESSION['carPlateError']);
+        }
+
+        if(Users::hasParcheggio())
+        {
+            echo "Hai un parcheggio";
         }
     }
 
