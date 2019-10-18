@@ -4,14 +4,12 @@
  */
 namespace Controllers;
 
-use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
-use Libs\Auth as Auth;
 
-class Home
+class Ricerca
 {
     public function index()
     {
-        ViewLoader::load('home/index');
+        ViewLoader::load('ricerca/index');
     }
 }
