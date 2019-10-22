@@ -51,7 +51,7 @@
                         <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'home/ricerca'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                     <?php
                     use models\Users as Users;

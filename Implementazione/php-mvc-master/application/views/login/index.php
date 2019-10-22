@@ -18,6 +18,17 @@
     <!-- Personal style file -->
     <link href="/assets/mdb/css/style.css" rel="stylesheet">
 
+    <!-- JQuery -->
+    <script type="text/javascript" src="/assets/mdb/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/assets/mdb/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/assets/mdb/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/assets/mdb/js/mdb.min.js"></script>
+    <!-- Notify.js -->
+    <script type="text/javascript" src="/assets/mdb/js/notify.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +62,7 @@
                         <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'home/ricerca'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                 </ul>
                 <!-- Links -->
@@ -79,19 +90,16 @@
 
                     <div class="col-md-10">
 
-                        <!-- Login error alert -->
+                        <!-- Error alerts -->
                         <?php
-                            echo isset($_SESSION['loginError'])?'
-                            <div class="alert alert-danger" role="alert">
-                                Login error!
-                            </div>': "";
+                        echo isset($_SESSION['loginError'])?"<script> $.notify(\"Login error\", \"error\")</script>": "";
                         ?>
-                        <!-- Login error alert -->
+                        <!-- Error alerts -->
 
                         <!-- Default form login -->
-                        <form class="text-center border border-light p-5 rounded mb-0 login-form-bg" action="<?php echo URL; ?>login/login" method="POST">
+                        <form class="text-center border border-light p-5 rounded mb-0 form-bg" action="<?php echo URL; ?>login/login" method="POST">
 
-                            <p class="h4 mb-4 font-weight-bold text-light">Sign in</p>
+                            <p class="h4 mb-4 font-weight-bold text-light">Log in</p>
 
                             <!-- Email -->
                             <input type="email" name="email" class="form-control mb-4"
@@ -102,11 +110,11 @@
                             placeholder="Password">
 
                             <!-- Sign in button -->
-                            <button class="btn btn-info btn-block my-4" type="submit" value="Login" name="login">Sign in</button>
+                            <button class="btn btn-info btn-block my-4" type="submit" value="Login" name="login">Log in</button>
 
                             <!-- Register -->
-                            <p class="text-light">Not a member?
-                                <a class="font-weight-bold text-light" href="<?php URL ?>register">Register</a>
+                            <p class="text-light">Non sei registrato?
+                                <a class="font-weight-bold text-light" href="<?php echo URL.'register/index'; ?>">Registrati</a>
                             </p>
 
                         </form>
@@ -130,14 +138,6 @@
 
     </footer>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="/assets/mdb/js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/assets/mdb/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/assets/mdb/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/assets/mdb/js/mdb.min.js"></script>
 </body>
 
 </html>

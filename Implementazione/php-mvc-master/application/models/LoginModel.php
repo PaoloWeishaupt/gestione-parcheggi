@@ -6,7 +6,6 @@ use Libs\Auth as Auth;
 
 class LoginModel
 {
-    private $statement;
 
     public static function log($email, $pass)
     {
