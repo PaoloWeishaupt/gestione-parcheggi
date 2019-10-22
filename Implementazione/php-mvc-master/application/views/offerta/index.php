@@ -8,15 +8,39 @@
 
     <!-- Bootstrap core CSS -->
     <link href="/assets/mdb/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Material Design Bootstrap -->
     <link href="/assets/mdb/css/mdb.min.css" rel="stylesheet">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-
     <!-- Personal style file -->
     <link href="/assets/mdb/css/style.css" rel="stylesheet">
+    <!-- Bootstrap-datepicker.css -->
+    <link href="/assets/mdb/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="/assets/mdb/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/assets/mdb/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/assets/mdb/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/assets/mdb/js/mdb.min.js"></script>
+    <!-- Notify.js -->
+    <script type="text/javascript" src="/assets/mdb/js/notify.js"></script>
+    <!-- Bootstrap-datepicker.js -->
+    <script type="text/javascript" src="/assets/mdb/bootstrap-datepicker-1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="/assets/mdb/bootstrap-datepicker-1.9.0/locales/bootstrap-datepicker.it.min.js" charset="UTF-8"></script>
+    <!-- Script -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#datepicker').datepicker({
+                "format": "dd-mm-yyyy",
+                "todayBtn": "linked",
+                "todayHighlight": true,
+                "weekStart": 1
+            });
+        });
+    </script>
 
 </head>
 
@@ -51,7 +75,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'home/ricerca'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                     <?php
                     use models\Users as Users;
@@ -116,19 +140,12 @@
                             <!-- Divider -->
                             <hr class="hr-light">
 
-                            <!-- Error alert -->
+                            <!-- Error alerts -->
                             <?php
-                                echo isset($_SESSION['dateError'])?'
-                                <div class="alert alert-danger" role="alert">
-                                    '.$_SESSION['dateError'].'
-                                </div>': "";
-
-                                echo isset($_SESSION['carPlateError'])?'
-                                <div class="alert alert-danger" role="alert">
-                                    '.$_SESSION['carPlateError'].'
-                                </div>': "";
+                            echo isset($_SESSION['dateError'])?"<script> $.notify(\"".$_SESSION['dateError']."\", \"error\")</script>": "";
+                            echo isset($_SESSION['carPlateError'])?"<script> $.notify(\"".$_SESSION['carPlateError']."\", \"error\")</script>": "";
                             ?>
-                            <!-- Error alert -->
+                            <!-- Error alerts -->
 
                             <!-- Default form offer -->
                             <form class="text-center border border-light p-5 rounded mb-0 login-form-bg" action="<?php echo URL; ?>offerta/offri" method="POST">
@@ -141,7 +158,7 @@
                                 </select>
 
                                 <label class="font-weight-bold text-light">Seleziona una data:</label>
-                                <input type="date" name="datepicker" class="form-control mb-4" value="<?php echo isset($_SESSION['selectedDate']) ? $_SESSION['selectedDate'] : ""; ?>" required>
+                                <input type='text' name="datepicker" class="form-control mb-4" data-date-language="it" id="datepicker" value="<?php echo isset($_SESSION['selectedDate']) ? $_SESSION['selectedDate'] : ""; ?>" required>
 
                                 <label class="font-weight-bold text-light">Inserisci una targa:</label>
                                 <input type="text" name="car_plate" placeholder="AA-NNNNNN" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">
@@ -170,14 +187,6 @@
 
     </footer>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="/assets/mdb/js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/assets/mdb/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/assets/mdb/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/assets/mdb/js/mdb.min.js"></script>
 </body>
 
 </html>
