@@ -9,9 +9,11 @@ use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
 use Libs\Auth as Auth;
 use Models\Users as Users;
+use Models\OffertaModel as OffertaModel;
 
 class Offerta
 {
+
     public function index()
     {
         if (Auth::isAuthenticated()) {
@@ -23,24 +25,7 @@ class Offerta
 
     public function offri()
     {
-        if(isset($_POST['offri'])){
-            $selected_val = $_POST['select_disp'];
-            $selected_date = Validator::validateDate($_POST['datepicker']);
-            $selected_car = Validator::validateCarPlate($_POST['car_plate']);            
-        }
-
-        if(isset($_SESSION['dateError']) || isset($_SESSION['carPlateError']))
-        {
-            ViewLoader::load('offerta/index');
-
-            unset($_SESSION['dateError']);
-            unset($_SESSION['carPlateError']);
-        }
-
-        if(Users::hasParcheggio())
-        {
-            echo "Hai un parcheggio";
-        }
+        OffertaModel::addOfferta();
     }
 
 }
