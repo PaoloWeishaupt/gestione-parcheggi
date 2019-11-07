@@ -5,11 +5,13 @@
 namespace Controllers;
 
 use Libs\ViewLoader as ViewLoader;
+use Models\RicercaModel as RicercaModel;
 
 class Ricerca
 {
     public function index()
     {
-        ViewLoader::load('ricerca/index');
+        RicercaModel::getParcheggiDisponibili();
+        ViewLoader::load('ricerca/index', array('parcheggi'=>RicercaModel::$parcheggi));
     }
 }

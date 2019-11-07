@@ -7,10 +7,10 @@ use Controllers\Validator as Validator;
 use Libs\Database as Database;
 use Libs\ViewLoader;
 use PDO;
+use PDOException;
 
 class RegisterModel
 {
-    private static $statement;
     private static $nome;
     private static $cognome;
     private static $mail;
@@ -19,6 +19,7 @@ class RegisterModel
     private static $citta;
     private static $tel;
     private static $password;
+    private static $statement;
 
     public static function register()
     {
@@ -45,7 +46,7 @@ class RegisterModel
         {
             self::$statement->execute();
             ViewLoader::load('login/index');
-        } catch (\PDOException $e)
+        } catch (PDOException $e)
         {
             ViewLoader::load('register/index');
         }

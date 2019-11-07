@@ -26,7 +26,7 @@
     <header>
         
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark rgba-grey-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark black fixed-top">
     
             <!-- Navbar brand -->
             <span class="navbar-brand h4-responsive"><strong>Gestione Parcheggi</strong></span>
@@ -98,7 +98,7 @@
         <div id="intro" class="view img">
 
             <!-- Full Page Intro -->
-            <div class="mask rgba-stylish-strong">
+            <div class="mask rgba-black-strong">
 
                 <div class="container-fluid d-flex align-items-center justify-content-center h-100">
 

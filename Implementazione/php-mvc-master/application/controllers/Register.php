@@ -4,7 +4,6 @@
  */
 namespace controllers;
 
-use Libs\Auth as Auth;
 use Libs\ViewLoader as ViewLoader;
 use Models\RegisterModel as RegisterModel;
 

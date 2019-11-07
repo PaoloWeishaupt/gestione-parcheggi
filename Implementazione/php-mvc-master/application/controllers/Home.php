@@ -4,9 +4,7 @@
  */
 namespace Controllers;
 
-use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
-use Libs\Auth as Auth;
 
 class Home
 {

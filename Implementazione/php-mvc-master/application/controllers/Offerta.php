@@ -4,11 +4,9 @@
  */
 namespace Controllers;
 
-use Controllers\Validator as Validator;
 use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
 use Libs\Auth as Auth;
-use Models\Users as Users;
 use Models\OffertaModel as OffertaModel;
 
 class Offerta

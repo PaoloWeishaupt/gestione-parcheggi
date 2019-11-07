@@ -15,7 +15,7 @@
     <!-- Personal style file -->
     <link href="/assets/mdb/css/style.css" rel="stylesheet">
     <!-- Bootstrap-datepicker.css -->
-    <link href="/assets/mdb/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="/assets/mdb/bootstrap-datepicker-1.9.0/css/bootstrap-datepicker.standalone.css" rel="stylesheet">
 
     <!-- JQuery -->
     <script type="text/javascript" src="/assets/mdb/js/jquery-3.4.1.min.js"></script>
@@ -34,10 +34,12 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#datepicker').datepicker({
-                "format": "dd-mm-yyyy",
-                "todayBtn": "linked",
-                "todayHighlight": true,
-                "weekStart": 1
+                format: "dd-mm-yyyy",
+                weekStart: 1,
+                todayBtn: "linked",
+                clearBtn: true,
+                language: "it",
+                todayHighlight: true
             });
         });
     </script>
@@ -50,7 +52,7 @@
     <header>
         
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark rgba-grey-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark black fixed-top">
     
             <!-- Navbar brand -->
             <span class="navbar-brand h4-responsive"><strong>Gestione Parcheggi</strong></span>
@@ -122,7 +124,7 @@
         <div id="intro" class="view img">
 
             <!-- Full Page Intro -->
-            <div class="mask rgba-stylish-strong">
+            <div class="mask rgba-black-strong">
 
                 <div class="container-fluid align-items-center justify-content-center h-100">
                 
@@ -144,6 +146,8 @@
                             <?php
                             echo isset($_SESSION['dateError'])?"<script> $.notify(\"".$_SESSION['dateError']."\", \"error\")</script>": "";
                             echo isset($_SESSION['carPlateError'])?"<script> $.notify(\"".$_SESSION['carPlateError']."\", \"error\")</script>": "";
+                            echo isset($_SESSION['noPark'])?"<script> $.notify(\"".$_SESSION['noPark']."\", \"error\")</script>": "";
+                            echo isset($_SESSION['addPark'])?"<script> $.notify(\"".$_SESSION['addPark']."\", \"error\")</script>": "";
                             ?>
                             <!-- Error alerts -->
 
@@ -158,10 +162,10 @@
                                 </select>
 
                                 <label class="font-weight-bold text-light">Seleziona una data:</label>
-                                <input type='text' name="datepicker" class="form-control mb-4" data-date-language="it" id="datepicker" value="<?php echo isset($_SESSION['selectedDate']) ? $_SESSION['selectedDate'] : ""; ?>" required>
+                                <input type="text" name="datepicker" class="form-control mb-4" data-date-language="it" id="datepicker" value="<?php echo isset($_SESSION['selectedDate']) ? $_SESSION['selectedDate'] : ""; ?>" required>
 
                                 <label class="font-weight-bold text-light">Inserisci una targa:</label>
-                                <input type="text" name="car_plate" placeholder="AA-NNNNNN" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">
+                                <input type="text" name="car_plate" placeholder="TI-123456" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">
 
                                 <!-- Offer button -->
                                 <button class="btn btn-success my-4" type="submit" value="Offri" name="offri">Offri</button>
