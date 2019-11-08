@@ -68,7 +68,10 @@ class OffertaModel
         else
         {
             $_SESSION['noPark'] = 'Non hai un parcheggio!';
+            unset($_SESSION['selectedDate']);
+            unset($_SESSION['carPlate']);
             ViewLoader::load('offerta/index');
+            unset($_SESSION['noPark']);
         }
     }
 
