@@ -33,6 +33,7 @@ main,
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
     background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
 }
 
 .head-dark{
