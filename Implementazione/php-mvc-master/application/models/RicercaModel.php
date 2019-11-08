@@ -14,9 +14,9 @@ class RicercaModel
     {
         self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null");
         self::$statement->execute();
-        self::$parcheggi = self::$statement->fetchAll();
+        self::$parcheggi = self::$statement->fetchAll(\PDO::FETCH_ASSOC);
 
-        foreach(self::$parcheggi as $row)
+        foreach(self::$parcheggi as &$row)
         {
             if(is_null($row['n_targa']))
             {
