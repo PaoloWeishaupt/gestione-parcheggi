@@ -146,7 +146,7 @@
                                 <td><?php echo $row['data_disp'] ?></td>
                                 <td><?php echo $row['n_targa'] ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-indigo btn-sm m-0">Button</button>
+                                    <button type="button" class="btn btn-indigo btn-sm m-0">Prenota</button>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
