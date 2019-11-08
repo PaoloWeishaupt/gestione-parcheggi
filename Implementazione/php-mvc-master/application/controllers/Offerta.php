@@ -11,7 +11,9 @@ use Models\OffertaModel as OffertaModel;
 
 class Offerta
 {
-
+    /*
+     * Funzione che carica la pagina di offerta.
+     */
     public function index()
     {
         if (Auth::isAuthenticated()) {
@@ -20,7 +22,9 @@ class Offerta
             Application::redirect("login/index");
         }
     }
-
+    /*
+     * Funzione che richiama il metodo che aggiunge un offerta.
+     */
     public function offri()
     {
         OffertaModel::addOfferta();

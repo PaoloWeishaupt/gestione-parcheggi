@@ -8,17 +8,23 @@ use Controllers\ErrorPage as ErrorPage;
 
 class Validator
 {
-
+    /*
+     * Funzione per evitare injection.
+     */
     public static function testInput($element)
     {
         return trim(stripslashes(htmlspecialchars($element)));
     }
 
+    /*
+     * Funzione per la validazione del CAP con il formato svizzero.
+     * FOrmato svizzero = 4 cifre.
+     */
     public static function validateCAP($element)
     {
         $_SESSION['validateCAP'] = $element;
 
-        $pattern = '/^\d{4,5}$/';
+        $pattern = '/^\d{4}$/';
         if(preg_match($pattern, self::testInput($element)))
         {
             return $element;
@@ -27,6 +33,9 @@ class Validator
         $_SESSION['CAPerror'] = "CAP errato";
     }
 
+    /*
+     * Funzione per il controllo delle stringhe che non accettano caratteri speciali e numeri.
+     */
     public static function validateCharAndSpace($element)
     {
         $_SESSION['validateCharAndSpace'] = $element;
@@ -37,9 +46,13 @@ class Validator
             return $element;
         }
 
-        $_SESSION['CharAndSpaceError'] = 'Non sono accettati numeri';
+        $_SESSION['CharAndSpaceError'] = 'Non sono accettati caratteri speciali e numeri';
     }
 
+    /*
+     * Funzione per la validazione di una via.
+     * Pattern = string + spazio + da uno a 3 numeri + eventuale lettera.
+     */
     public static function validateVia($element)
     {
         $_SESSION['validateVia'] = $element;
@@ -53,6 +66,14 @@ class Validator
         $_SESSION['viaError'] = 'Via errata';
     }
 
+    /*
+     * Funzione per la validazione di un numero svizzero.
+     * Numero svizzero:
+     *
+     * 07X XXX XX XX
+     * 0041 7X XXX XX XX
+     * +41 7X XXX XX XX
+     */
     public static function validatePhoneNumber($element)
     {
         $_SESSION['validatePhoneNumber'] = $element;
@@ -66,6 +87,9 @@ class Validator
         $_SESSION['phoneError'] = 'Numero di telefono errato';
     }
 
+    /*
+     * Funzione per la validazione di una data. Per essere valida una data non deve essere inferiiore a quella corrente.
+     */
     public static function validateDate($element)
     {
         $inputDate = date_create($element);
@@ -88,6 +112,10 @@ class Validator
         $_SESSION['dateError'] = "Data non valida!";
     }
 
+    /*
+     * Funzione per la validazione di una targa svizzera.
+     * Pattern = (Iniziali del cantone) + da 1 a 6 numeri.
+     */
     public static function validateCarPlate($element)
     {
         $_SESSION['carPlate'] = $element;

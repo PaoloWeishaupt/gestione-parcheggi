@@ -12,12 +12,18 @@ use Models\LoginModel as LoginModel;
 
 class Login
 {
-
+    /*
+     * Funzione che carica la pagina di login.
+     */
     public function index()
     {
         ViewLoader::load('login/index');
     }
 
+    /*
+     * Funzione che richiama il metodo di login.
+     * Se va a buon fine si carica la pagina home. Se non va a buon fine si ricarica la pagina di login.
+     */
     public function login()
     {
         if($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -37,6 +43,9 @@ class Login
         }
     }
 
+    /*
+     * Funzione che richiama il metodo di logout.
+     */
     public function logout()
     {
         Auth::logout();
