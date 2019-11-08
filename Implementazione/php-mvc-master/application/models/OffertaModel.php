@@ -59,7 +59,7 @@ class OffertaModel
             try
             {
                 self::$statement->execute();
-            } catch (PDOException $e)
+            } catch (\PDOException $e)
             {
                 $_SESSION['addPark'] = 'Errore nel caricamento dell\'offerta!';
                 ViewLoader::load('offerta/index');
