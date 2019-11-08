@@ -69,21 +69,18 @@ class Validator
     public static function validateDate($element)
     {
         $inputDate = date_create($element);
-        $inputDateFormat = date_format($inputDate, 'd-m-Y');
-        $today = date('d-m-Y');
+        $today = date_create();
         
-        /*
-        For debug*/
-        echo "Input date: ";
+
+        //For debug
+        /*echo "Input date: ";
         var_dump($inputDate);
-        echo "Input date format: ";
-        var_dump($inputDateFormat);
         echo "Today: ";
-        var_dump($today);
+        var_dump($today);*/
 
-        $_SESSION['selectedDate'] = $inputDateFormat;
+        $_SESSION['selectedDate'] = $element;
 
-        if($inputDateFormat >= $today)
+        if($inputDate >= $today)
         {
             return $element;
         }         
