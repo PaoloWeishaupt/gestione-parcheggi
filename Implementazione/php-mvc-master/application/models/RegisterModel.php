@@ -1,6 +1,7 @@
 <?php
-
-
+/**
+ * Classe model per la gestione della registrazione.
+ */
 namespace models;
 
 use Controllers\Validator as Validator;
@@ -11,16 +12,70 @@ use PDOException;
 
 class RegisterModel
 {
+    /**
+     * @var Nome dell'utente.
+     *
+     * Parametro non opzionale.
+     */
     private static $nome;
+
+    /**
+     * @var Cognome dell'utente.
+     *
+     * Parametro non opzionale.
+     */
     private static $cognome;
+
+    /**
+     * @var Mail dell'utente.
+     *
+     * Parametro non opzionale.
+     */
     private static $mail;
+
+    /**
+     * @var Via dell'utente.
+     *
+     * Parametro opzionale.
+     */
     private static $via;
+
+    /**
+     * @var CAP dell'utente.
+     *
+     * Parametro opzionale.
+     */
     private static $cap;
+
+    /**
+     * @var Città dell'utente.
+     *
+     * Parametro opzionale.
+     */
     private static $citta;
+
+    /**
+     * @var Telefono dell'utente.
+     *
+     * Parametro non opzionale.
+     */
     private static $tel;
+
+    /**
+     * @var Password dell'utente.
+     *
+     * Parametro non opzionale.
+     */
     private static $password;
+
+    /**
+     * @var Query da eseguire.
+     */
     private static $statement;
 
+    /**
+     * Funzione per eseguire la registrazione di un nuovo utente.
+     */
     public static function register()
     {
         if($_SERVER["REQUEST_METHOD"] === "POST")
@@ -52,6 +107,9 @@ class RegisterModel
         }
     }
 
+    /**
+     * Funzione che valida gli input tramite la classe Validator.
+     */
     public static function validateInputs()
     {
         self::$nome = Validator::validateCharAndSpace($_POST['registrationName']);

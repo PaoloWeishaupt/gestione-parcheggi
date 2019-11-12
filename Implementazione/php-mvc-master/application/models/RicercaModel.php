@@ -1,15 +1,26 @@
 <?php
-
-
+/**
+ * Classe model per gestire la tabella della ricerca dei parcheggi disponibili.
+ */
 namespace models;
 
 use Libs\Database as Database;
 
 class RicercaModel
 {
-    private static $statement;
+    /**
+     * @var Array dei parcehggi disponibili.
+     */
     public static $parcheggi;
 
+    /**
+     * @var Query da eseguire.
+     */
+    private static $statement;
+
+    /**
+     * Funzione che interroga il database per ricavarne una lista dei parcheggi disponibili.
+     */
     public static function getParcheggiDisponibili()
     {
         self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null");

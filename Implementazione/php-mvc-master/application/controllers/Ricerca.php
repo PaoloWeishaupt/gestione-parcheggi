@@ -9,7 +9,7 @@ use Models\RicercaModel as RicercaModel;
 
 class Ricerca
 {
-    /*
+    /**
      * Funzione che richiama il metodo per ricevere i posteggi offerti e poi reindirizza verso la pagina che li mostra.
      */
     public function index()

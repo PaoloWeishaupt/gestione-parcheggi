@@ -12,7 +12,7 @@ use Models\LoginModel as LoginModel;
 
 class Login
 {
-    /*
+    /**
      * Funzione che carica la pagina di login.
      */
     public function index()
@@ -20,7 +20,7 @@ class Login
         ViewLoader::load('login/index');
     }
 
-    /*
+    /**
      * Funzione che richiama il metodo di login.
      * Se va a buon fine si carica la pagina home. Se non va a buon fine si ricarica la pagina di login.
      */
@@ -43,7 +43,7 @@ class Login
         }
     }
 
-    /*
+    /**
      * Funzione che richiama il metodo di logout.
      */
     public function logout()

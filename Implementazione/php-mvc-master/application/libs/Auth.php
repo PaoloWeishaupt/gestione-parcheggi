@@ -5,8 +5,6 @@
  */
 namespace Libs;
 
-use Models\LoginModel as LoginModel;
-
 class Auth
 {
     public static function isAuthenticated()

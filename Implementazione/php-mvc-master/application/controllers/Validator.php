@@ -8,7 +8,7 @@ use Controllers\ErrorPage as ErrorPage;
 
 class Validator
 {
-    /*
+    /**
      * Funzione per evitare injection.
      */
     public static function testInput($element)

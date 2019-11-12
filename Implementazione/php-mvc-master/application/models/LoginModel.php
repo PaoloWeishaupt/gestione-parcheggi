@@ -1,4 +1,7 @@
-<?php 
+<?php
+/**
+ * Classe model per la gestione del login.
+ */
 namespace Models;
 
 use Libs\Database as Database;
@@ -7,6 +10,12 @@ use Libs\Auth as Auth;
 class LoginModel
 {
 
+    /**
+     * Funzione per eseguire il login.
+     * @param $email Email dell'utente che vuole accedere.
+     * @param $pass Password dell'utente che vuole accedere.
+     * @return bool True se l'accesso è andato a buon fine. Altrimenti false.
+     */
     public static function log($email, $pass)
     {
         $statement = Database::get()->prepare("select * from utente where mail=:email AND password=:pass");

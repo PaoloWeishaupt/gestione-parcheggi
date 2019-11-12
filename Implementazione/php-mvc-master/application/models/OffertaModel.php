@@ -1,6 +1,7 @@
 <?php
-
-
+/**
+ * Classe model per la gestione delle offerte.
+ */
 namespace models;
 
 use Controllers\Validator as Validator;
@@ -13,11 +14,29 @@ use PDO;
 class OffertaModel
 {
 
+    /**
+     * @var Disponibilità.
+     */
     private static $selectedVal;
+
+    /**
+     * @var Data della disponibilità.
+     */
     private static $selectedDate;
+
+    /**
+     * @var Numero di targa.
+     */
     private static $selectedCarPlate;
+
+    /**
+     * @var Query da eseguire.
+     */
     private static $statement;
 
+    /**
+     * Funzione per l'aggiunta di un'offerta.
+     */
     public static function addOfferta()
     {
         if(isset($_POST['offri'])){
