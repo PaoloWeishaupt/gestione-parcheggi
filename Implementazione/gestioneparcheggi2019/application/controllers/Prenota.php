@@ -20,4 +20,12 @@ class Prenota
         ViewLoader::load('prenota/index', array('parcheggio'=>PrenotaModel::$parcheggio));
     }
 
+    /**
+     * Funzione che richiama il metodo per eseguire una prenotazione.
+     */
+    public static function prenota()
+    {
+        PrenotaModel::prenota();
+    }
+
 }

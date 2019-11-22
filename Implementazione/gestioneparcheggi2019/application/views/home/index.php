@@ -18,6 +18,17 @@
     <!-- Personal style file -->
     <link href="/gestioneparcheggi2019/assets/mdb/css/style.css" rel="stylesheet">
 
+    <!-- JQuery -->
+    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/mdb.min.js"></script>
+    <!-- Notify.js -->
+    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/notify.js"></script>
+
 </head>
 
 <body>
@@ -94,7 +105,12 @@
     
     <!--Main layout-->
     <main>
-
+        <!-- Error alerts -->
+        <?php
+        echo isset($prenotazioneOK)?"<script> $.notify(\"".$prenotazioneOK."\", \"success\")</script>": "";
+        echo isset($offertaOK)?"<script> $.notify(\"".$offertaOK."\", \"success\")</script>": "";
+        ?>
+        <!-- Error alerts -->
         <div id="intro" class="view img">
 
             <!-- Full Page Intro -->
@@ -138,14 +154,6 @@
 
     </footer>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/jquery-3.4.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/mdb.min.js"></script>
 </body>
 
 </html>
