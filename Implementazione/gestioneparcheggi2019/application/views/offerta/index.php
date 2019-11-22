@@ -168,7 +168,7 @@
                                 <input type="text" name="car_plate" placeholder="TI-123456" class="form-control mb-4" maxlength="9" value="<?php echo isset($_SESSION['carPlate']) ? $_SESSION['carPlate'] : ""; ?>" pattern="^(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)-[0-9]{1,6}$">
 
                                 <!-- Offer button -->
-                                <button class="btn btn-success my-4" type="submit" value="Offri" name="offri">Offri</button>
+                                <button class="btn btn-primary my-4" type="submit" value="Offri" name="offri">Offri</button>
 
                             </form>
                             <!-- Default form offer -->

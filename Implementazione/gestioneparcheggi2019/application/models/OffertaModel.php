@@ -78,6 +78,7 @@ class OffertaModel
             try
             {
                 self::$statement->execute();
+                ViewLoader::load('home/index', array('offertaOK'=>"Offerta andata a buon fine"));
             } catch (\PDOException $e)
             {
                 $_SESSION['addPark'] = 'Errore nel caricamento dell\'offerta!';
