@@ -120,127 +120,61 @@
 
                 <div class="row d-flex justify-content-center text-center">
 
-                    <div class="col-md-5">
-
-                        <!-- Divider -->
-                        <hr class="hr-light">
-
-                        <!-- Error alerts -->
-                        <?php
-                        echo isset($_SESSION['dateError'])?"<script> $.notify(\"".$_SESSION['dateError']."\", \"error\")</script>": "";
-                        echo isset($_SESSION['carPlateError'])?"<script> $.notify(\"".$_SESSION['carPlateError']."\", \"error\")</script>": "";
-                        echo isset($_SESSION['noPark'])?"<script> $.notify(\"".$_SESSION['noPark']."\", \"error\")</script>": "";
-                        echo isset($_SESSION['addPark'])?"<script> $.notify(\"".$_SESSION['addPark']."\", \"error\")</script>": "";
-                        ?>
-                        <!-- Error alerts -->
-
-                        <!-- Default form grid -->
-                        <form>
-
-                            <!-- Grid row -->
-                            <div class="row">
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Nome</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Nome"
-                                           value="<?php echo $parcheggio['nome'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Cognome</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Cognome"
-                                           value="<?php echo $parcheggio['cognome'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
+                    <!-- Default form register -->
+                    <form class="text-center border border-light p-5 rounded mb-0 form-bg" action="<?php echo URL; ?>prenota/prenota" method="POST">
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Nome</label>
+                                <input type="text" class="form-control mb-4" placeholder="Nome"
+                                       value="<?php echo $parcheggio['nome'] ?>" disabled>
                             </div>
-                            <!-- Grid row -->
-
-                            <!-- Grid row -->
-                            <div class="row">
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Numero di telefono</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Numero di telefono"
-                                           value="<?php echo $parcheggio['tel'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Disponibilità</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Disponibilità"
-                                           value="<?php echo $parcheggio['disponibilita'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Cognome</label>
+                                <input type="text" class="form-control mb-4" placeholder="Cognome"
+                                       value="<?php echo $parcheggio['cognome'] ?>" disabled>
                             </div>
-                            <!-- Grid row -->
-
-                            <!-- Grid row -->
-                            <div class="row">
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Data disponibilità</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Data disponibilità"
-                                           value="<?php echo $parcheggio['data_disp'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Numero di targa</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Numero di targa"
-                                           value="<?php echo $parcheggio['n_targa'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
+                        </div>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Numero di telefono</label>
+                                <input type="text" class="form-control mb-4" placeholder="Numero di telefono"
+                                       value="<?php echo $parcheggio['tel'] ?>" disabled>
                             </div>
-                            <!-- Grid row -->
-
-                            <!-- Grid row -->
-                            <div class="row">
-
-                                <!-- Grid column -->
-                                <div class="col">
-
-                                    <!-- Default input -->
-                                    <label class="white-text font-weight-bold">Costo</label>
-                                    <input type="text" class="form-control mb-4" placeholder="Costo"
-                                           value="<?php echo $parcheggio['costo'] ?>" disabled>
-
-                                </div>
-                                <!-- Grid column -->
-
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Disponibilità</label>
+                                <input type="text" class="form-control mb-4" placeholder="Disponibilità"
+                                       value="<?php echo $parcheggio['disponibilita'] ?>" disabled>
                             </div>
-                            <!-- Grid row -->
+                        </div>
 
-                        </form>
-
-                    </div>
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Data disponibilità</label>
+                                <input type="text" class="form-control mb-4" placeholder="Data disponibilità"
+                                       value="<?php echo $parcheggio['data_disp'] ?>" disabled>
+                            </div>
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Numero di targa</label>
+                                <input type="text" class="form-control mb-4" placeholder="Numero di targa"
+                                       value="<?php echo $parcheggio['n_targa'] ?>" disabled>
+                            </div>
+                            <div class="col">
+                                <!-- Default input -->
+                                <label class="white-text font-weight-bold">Costo</label>
+                                <input type="text" class="form-control mb-4" placeholder="Costo"
+                                       value="<?php echo $parcheggio['costo'] ?>" disabled>
+                            </div>
+                        </div>
+                        <!-- Sign up button -->
+                        <button class="btn btn-info my-4 btn-block" type="submit">Prenota</button>
+                    </form>
+                    <!-- Default form register -->
 
                 </div>
 

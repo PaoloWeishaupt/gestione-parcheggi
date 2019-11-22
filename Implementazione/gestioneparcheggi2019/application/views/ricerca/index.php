@@ -60,11 +60,11 @@
         function filterDate() {
             var startDate = document.getElementById('startDate').value;
             var endDate = document.getElementById('endDate').value;
-            window.location.href = "/ricerca/index/?startDate=" + startDate + "&endDate=" + endDate;
+            window.location.href = "/gestioneparcheggi2019/ricerca/index/?startDate=" + startDate + "&endDate=" + endDate;
         }
 
         function filterDisp(disp) {
-            window.location.href = "/ricerca/index/?filter_disp=" + disp;
+            window.location.href = "/gestioneparcheggi2019/ricerca/index/?filter_disp=" + disp;
         }
     </script>
 </head>
@@ -152,6 +152,7 @@
         <!-- Error alerts -->
         <?php
         echo isset($_SESSION['minDateError'])?"<script> $.notify(\"".$_SESSION['minDateError']."\", \"error\")</script>": "";
+        echo isset($prenotazioneOK)?"<script> $.notify(\"".$prenotazioneOK."\", \"success\")</script>": "";
         ?>
         <!-- Error alerts -->
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+
     <!-- Bootstrap core CSS -->
     <link href="/gestioneparcheggi2019/assets/mdb/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,6 +28,7 @@
     <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/mdb.min.js"></script>
     <!-- Notify.js -->
     <script type="text/javascript" src="/gestioneparcheggi2019/assets/mdb/js/notify.js"></script>
+
 
 </head>
 
@@ -95,6 +97,7 @@
                         echo isset($_SESSION['CharAndSpaceError'])?"<script> $.notify(\"".$_SESSION['CharAndSpaceError']."\", \"error\")</script>": "";
                         echo isset($_SESSION['viaError'])?"<script> $.notify(\"".$_SESSION['viaError']."\", \"error\")</script>": "";
                         echo isset($_SESSION['phoneError'])?"<script> $.notify(\"".$_SESSION['phoneError']."\", \"error\")</script>": "";
+                        echo isset($prenotazioneNO)?"<script> $.notify(\"".$prenotazioneNO."\", \"error\")</script>": "";
                         ?>
                         <!-- Error alerts -->
 
