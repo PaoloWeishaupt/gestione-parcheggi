@@ -6,7 +6,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-define('URL', 'http://127.0.0.1:8080/gestioneparcheggi2019');
+define('URL', 'http://127.0.0.1:8080/gestioneparcheggi2019/');
 
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
