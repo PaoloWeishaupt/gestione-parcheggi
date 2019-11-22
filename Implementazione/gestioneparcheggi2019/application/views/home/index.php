@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <meta name="versione" content="00.06.00-22.11.2019">
+
     <!-- Bootstrap core CSS -->
     <link href="/gestioneparcheggi2019/assets/mdb/css/bootstrap.min.css" rel="stylesheet">
 
