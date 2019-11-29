@@ -59,10 +59,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'offer/index'; ?>"><strong>Offerta</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'research/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                 </ul>
                 <!-- Links -->
@@ -93,6 +93,7 @@
                         <!-- Error alerts -->
                         <?php
                         echo isset($_SESSION['loginError'])?"<script> $.notify(\"Login error\", \"error\")</script>": "";
+                        echo isset($reserveLog)?"<script> $.notify(\"".$reserveLog."\", \"error\")</script>": "";
                         ?>
                         <!-- Error alerts -->
 

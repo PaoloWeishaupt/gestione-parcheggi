@@ -5,19 +5,27 @@
 namespace controllers;
 
 use Controllers\Validator as Validator;
+use Libs\Auth as Auth;
 use Libs\ViewLoader as ViewLoader;
-use Models\PrenotaModel as PrenotaModel;
+use Models\ReserveModel as ReserveModel;
 
-class Prenota
+class Reserve
 {
     /**
      * Funzione per caricare la pagina di prenotazione.
      */
     public static function index()
     {
-        $id = Validator::testInput($_POST['id']);
-        PrenotaModel::getParcheggioInfo($id);
-        ViewLoader::load('prenota/index', array('parcheggio'=>PrenotaModel::$parcheggio));
+        if(Auth::isAuthenticated())
+        {
+            $id = Validator::testInput($_POST['id']);
+            ReserveModel::getParcheggioInfo($id);
+            ViewLoader::load('prenota/index', array('parcheggio'=>ReserveModel::$parcheggio));
+        }
+        else
+        {
+            ViewLoader::load('login/index', array('reserveLog'=>"Per eseguire una prenotazione devi avere un account!"));
+        }
     }
 
     /**
@@ -25,7 +33,7 @@ class Prenota
      */
     public static function prenota()
     {
-        PrenotaModel::prenota();
+        ReserveModel::prenota();
     }
 
 }

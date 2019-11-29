@@ -72,12 +72,12 @@
                         <a class="nav-link" href="<?php echo URL.'home/index'; ?>"><strong>Home</strong></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong>
+                        <a class="nav-link" href="<?php echo URL.'offer/index'; ?>"><strong>Offerta</strong>
                           <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'research/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                     <?php
                     use models\Users as Users;
@@ -152,7 +152,7 @@
                             <!-- Error alerts -->
 
                             <!-- Default form offer -->
-                            <form class="text-center border border-light p-5 rounded mb-0 login-form-bg" action="<?php echo URL; ?>offerta/offri" method="POST">
+                            <form class="text-center border border-light p-5 rounded mb-0 login-form-bg" action="<?php echo URL; ?>offer/offri" method="POST">
 
                                 <label class="font-weight-bold text-light">Seleziona la disponibilità:</label>
                                 <select class="browser-default custom-select mb-4" name="select_disp" required>

@@ -24,4 +24,23 @@ class Register
     {
         RegisterModel::register();
     }
+
+    /**
+     * Funzione che richiama il metodo per la verifica dell'utente.
+     */
+    public function verify()
+    {
+        if(isset($_GET['mail']) && isset($_GET['nome']) && !empty($_GET['cognome'])){
+
+            $mail = Validator::testInput($_GET['mail']);
+            $nome = Validator::validateCharAndSpace($_GET['nome']);
+            $cognome = Validator::validateCharAndSpace($_GET['cognome']);
+
+            RegisterModel::verify($mail, $nome, $cognome);
+        }else{
+
+            ViewLoader::load('home/index', array('activationNO'=>"Usa il link che ti è stato inviato per mail!"));
+
+        }
+    }
 }

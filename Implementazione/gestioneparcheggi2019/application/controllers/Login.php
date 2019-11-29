@@ -32,7 +32,7 @@ class Login
                 $email = Validator::testInput($_POST['email']);
                 $pass = hash('sha256', $_POST['password']);
     
-                $result = LoginModel::log($email, $pass);
+                LoginModel::log($email, $pass);
             }
         }
         if(Auth::isAuthenticated())

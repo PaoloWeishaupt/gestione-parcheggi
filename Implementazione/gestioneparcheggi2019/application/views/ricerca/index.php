@@ -60,11 +60,11 @@
         function filterDate() {
             var startDate = document.getElementById('startDate').value;
             var endDate = document.getElementById('endDate').value;
-            window.location.href = "/gestioneparcheggi2019/ricerca/index/?startDate=" + startDate + "&endDate=" + endDate;
+            window.location.href = "/gestioneparcheggi2019/research/index/?startDate=" + startDate + "&endDate=" + endDate;
         }
 
         function filterDisp(disp) {
-            window.location.href = "/gestioneparcheggi2019/ricerca/index/?filter_disp=" + disp;
+            window.location.href = "/gestioneparcheggi2019/research/index/?filter_disp=" + disp;
         }
     </script>
 </head>
@@ -99,10 +99,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL . 'offerta/index'; ?>"><strong>Offerta</strong></a>
+                        <a class="nav-link" href="<?php echo URL . 'offer/index'; ?>"><strong>Offerta</strong></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo URL . 'ricerca/index'; ?>"><strong>Ricerca</strong>
+                        <a class="nav-link" href="<?php echo URL . 'research/index'; ?>"><strong>Ricerca</strong>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -222,7 +222,7 @@
                                 <td><?php echo $row['data_disp'] ?></td>
                                 <td><?php echo $row['n_targa'] ?></td>
                                 <td>
-                                    <form action="<?php echo URL.'prenota/index'; ?>" method="post">
+                                    <form action="<?php echo URL.'reserve/index'; ?>" method="post">
                                         <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                                         <button type="submit" class="button btn-primary">Prenota</button>
                                     </form>

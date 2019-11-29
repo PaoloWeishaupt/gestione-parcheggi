@@ -55,10 +55,10 @@
                     <a class="nav-link" href="<?php echo URL.'home/index'; ?>"><strong>Home</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
+                    <a class="nav-link" href="<?php echo URL.'offer/index'; ?>"><strong>Offerta</strong></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong>
+                    <a class="nav-link" href="<?php echo URL.'research/index'; ?>"><strong>Ricerca</strong>
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -121,7 +121,7 @@
                 <div class="row d-flex justify-content-center text-center">
 
                     <!-- Default form register -->
-                    <form class="text-center border border-light p-5 rounded mb-0 form-bg" action="<?php echo URL; ?>prenota/prenota" method="POST">
+                    <form class="text-center border border-light p-5 rounded mb-0 form-bg" action="<?php echo URL; ?>reserve/prenota" method="POST">
                         <div class="form-row mb-4">
                             <div class="col">
                                 <!-- Default input -->

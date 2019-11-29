@@ -60,10 +60,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
+                    <a class="nav-link" href="<?php echo URL.'offer/index'; ?>"><strong>Offerta</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
+                    <a class="nav-link" href="<?php echo URL.'research/index'; ?>"><strong>Ricerca</strong></a>
                 </li>
             </ul>
             <!-- Links -->
@@ -98,6 +98,7 @@
                         echo isset($_SESSION['viaError'])?"<script> $.notify(\"".$_SESSION['viaError']."\", \"error\")</script>": "";
                         echo isset($_SESSION['phoneError'])?"<script> $.notify(\"".$_SESSION['phoneError']."\", \"error\")</script>": "";
                         echo isset($prenotazioneNO)?"<script> $.notify(\"".$prenotazioneNO."\", \"error\")</script>": "";
+                        echo isset($registrationNO)?"<script> $.notify(\"".$registrationNO."\", \"error\")</script>": "";
                         ?>
                         <!-- Error alerts -->
 

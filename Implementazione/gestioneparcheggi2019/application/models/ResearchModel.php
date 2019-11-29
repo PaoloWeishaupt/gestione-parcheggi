@@ -6,7 +6,7 @@ namespace models;
 
 use Libs\Database as Database;
 
-class RicercaModel
+class ResearchModel
 {
     /**
      * @var Array dei parcheggi disponibili.

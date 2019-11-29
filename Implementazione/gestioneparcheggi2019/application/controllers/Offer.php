@@ -7,9 +7,9 @@ namespace Controllers;
 use Libs\Application as Application;
 use Libs\ViewLoader as ViewLoader;
 use Libs\Auth as Auth;
-use Models\OffertaModel as OffertaModel;
+use Models\OfferModel as OfferModel;
 
-class Offerta
+class Offer
 {
     /**
      * Funzione che carica la pagina di offerta.
@@ -28,7 +28,7 @@ class Offerta
      */
     public function offri()
     {
-        OffertaModel::addOfferta();
+        OfferModel::addOfferta();
     }
 
 }

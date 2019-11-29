@@ -14,7 +14,6 @@ class LoginModel
      * Funzione per eseguire il login.
      * @param $email Email dell'utente che vuole accedere.
      * @param $pass Password dell'utente che vuole accedere.
-     * @return bool True se l'accesso è andato a buon fine. Altrimenti false.
      */
     public static function log($email, $pass)
     {
@@ -34,12 +33,13 @@ class LoginModel
             $_SESSION['ruolo'] = $result['ruolo'];
             $_SESSION['nome'] = $result['nome'];
             $_SESSION['id_posteggio'] = $result['id_posteggio'];
-            //var_dump($result['nome']);
-            return true;
+            $_SESSION['active'] = $result['attivo'];
+
+            return;
         } else {
             Auth::logout();
             $_SESSION['loginError'] = true;
-            return false;
+            return;
         }
     }
 }

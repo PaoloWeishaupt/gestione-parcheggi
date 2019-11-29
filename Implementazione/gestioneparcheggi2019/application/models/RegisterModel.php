@@ -7,6 +7,7 @@ namespace models;
 use Controllers\Validator as Validator;
 use Libs\Database as Database;
 use Libs\ViewLoader;
+use Models\MailModel as MailModel;
 use PDO;
 use PDOException;
 
@@ -100,10 +101,35 @@ class RegisterModel
         try
         {
             self::$statement->execute();
-            ViewLoader::load('login/index');
+            MailModel::newUserMail(self::$mail, self::$nome, self::$cognome);
+            ViewLoader::load('home/index', array('registrationOK'=>"Registrazione avvenuta con successo!"));
         } catch (PDOException $e)
         {
-            ViewLoader::load('register/index');
+            ViewLoader::load('register/index', array('registrationNO'=>"Errore nella registrazione!"));
+        }
+    }
+
+    public static function verify($mail, $nome, $cognome)
+    {
+        self::$statement = Database::get()->prepare("select mail, nome, cognome 
+                    from utente where mail=:mail and nome=:nome and cognome=:cognome;
+        ");
+
+        self::$statement->bindParam(':mail', $mail, PDO::PARAM_STR);
+        self::$statement->bindParam(':nome', $nome, PDO::PARAM_STR);
+        self::$statement->bindParam(':cognome', $cognome, PDO::PARAM_STR);
+
+        self::$statement->execute();
+        $result = self::$statement->fetch(\PDO::FETCH_ASSOC);
+
+        if($result > 0){
+            self::$statement = Database::get()->prepare("update utente set attivo=true 
+                        where mail=:mail and nome=:nome and cognome=:cognome and attivo=false
+            ");
+
+            ViewLoader::load('home/index', array('activationOK'=>"Il tuo account è stato attivato con successo!"));
+        }else{
+            ViewLoader::load('home/index', array('activationNO'=>"L'URL è invalido o il tuo account è già attivo!"));
         }
     }
 

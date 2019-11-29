@@ -9,7 +9,7 @@ use Libs\Database as Database;
 use Libs\ViewLoader;
 use Libs\Auth as Auth;
 
-class PrenotaModel
+class ReserveModel
 {
     /**
      * @var Parcheggio del quale ricevere le informazioni.

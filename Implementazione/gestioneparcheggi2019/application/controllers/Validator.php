@@ -18,7 +18,7 @@ class Validator
 
     /*
      * Funzione per la validazione del CAP con il formato svizzero.
-     * FOrmato svizzero = 4 cifre.
+     * Formato svizzero = 4 cifre.
      */
     public static function validateCAP($element)
     {
@@ -88,13 +88,12 @@ class Validator
     }
 
     /*
-     * Funzione per la validazione di una data. Per essere valida una data non deve essere inferiiore a quella corrente.
+     * Funzione per la validazione di una data. Per essere valida una data non deve essere inferiore a quella corrente.
      */
     public static function validateDate($element)
     {
         $inputDate = date_create($element);
         $today = date_create();
-        
 
         //For debug
         /*echo "Input date: ";

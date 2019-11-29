@@ -5,12 +5,13 @@
 namespace Controllers;
 
 use Libs\ViewLoader as ViewLoader;
-use Models\RicercaModel as RicercaModel;
+use Models\ResearchModel as ResearchModel;
 
-class Ricerca
+class Research
 {
     /**
-     * Funzione che richiama il metodo per ricevere i posteggi offerti e poi reindirizza verso la pagina che li mostra.
+     * Funzione che richiama il metodo per ricevere i posteggi offerti in base al filtro scelto dall'utente e poi
+     * reindirizza verso la pagina che li mostra.
      */
     public function index()
     {
@@ -18,7 +19,7 @@ class Ricerca
         if(isset($_GET['filter_disp']))
         {
             $disp = Validator::testInput($_GET['filter_disp']);
-            RicercaModel::filterByDisp($disp);
+            ResearchModel::filterByDisp($disp);
             $selected = $disp;
         }
         elseif (isset($_GET['startDate']) && isset($_GET['endDate']))
@@ -26,12 +27,12 @@ class Ricerca
             $startDate = $_GET['startDate'];
             $endDate = $_GET['endDate'];
 
-            RicercaModel::filterByDate($startDate, $endDate);
+            ResearchModel::filterByDate($startDate, $endDate);
         }
         else {
-            RicercaModel::getParcheggiDisponibili();
+            ResearchModel::getParcheggiDisponibili();
         }
-        ViewLoader::load('ricerca/index', array('parcheggi'=>RicercaModel::$parcheggi, 'selected' => $selected));
+        ViewLoader::load('ricerca/index', array('parcheggi'=>ResearchModel::$parcheggi, 'selected' => $selected));
     }
 
 }

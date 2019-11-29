@@ -61,10 +61,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'offerta/index'; ?>"><strong>Offerta</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'offer/index'; ?>"><strong>Offerta</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo URL.'ricerca/index'; ?>"><strong>Ricerca</strong></a>
+                        <a class="nav-link" href="<?php echo URL.'research/index'; ?>"><strong>Ricerca</strong></a>
                     </li>
                     <?php
                     use models\Users as Users;
@@ -111,6 +111,9 @@
         <?php
         echo isset($prenotazioneOK)?"<script> $.notify(\"".$prenotazioneOK."\", \"success\")</script>": "";
         echo isset($offertaOK)?"<script> $.notify(\"".$offertaOK."\", \"success\")</script>": "";
+        echo isset($registrationOK)?"<script> $.notify(\"".$registrationOK."\", \"success\")</script>": "";
+        echo isset($activationOK)?"<script> $.notify(\"".$activationOK."\", \"success\")</script>": "";
+        echo isset($activationNO)?"<script> $.notify(\"".$activationNO."\", \"success\")</script>": "";
         ?>
         <!-- Error alerts -->
         <div id="intro" class="view img">

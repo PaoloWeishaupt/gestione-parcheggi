@@ -17,5 +17,6 @@ define('DB_PORT', 3306);
 $autoload_directories = array(
     "application/controllers/",
     "application/libs/",
+    "application/libs/phpmailer/",
     "application/models/"
 );
