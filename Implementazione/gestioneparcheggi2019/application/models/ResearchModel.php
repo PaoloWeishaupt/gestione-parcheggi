@@ -65,8 +65,15 @@ class ResearchModel
      */
     public static function filterByDisp($disp)
     {
-        self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null and disponibilita = :disp");
-        self::$statement->bindParam(':disp', $disp, \PDO::PARAM_STR);
+        if($disp == "Tutto")
+        {
+            self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null");
+        }
+        else
+        {
+            self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null and disponibilita = :disp");
+            self::$statement->bindParam(':disp', $disp, \PDO::PARAM_STR);
+        }
         self::$statement->execute();
 
         self::$parcheggi = self::$statement->fetchAll(\PDO::FETCH_ASSOC);

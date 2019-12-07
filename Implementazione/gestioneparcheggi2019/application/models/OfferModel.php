@@ -54,7 +54,7 @@ class OfferModel
         }
         else
         {
-            if(Users::hasParcheggio())
+            if(Users::hasParcheggio() && $_SESSION['active']==true)
             {
                 $inputDate = date_create(self::$selectedDate);
                 $inputDateFormat = date_format($inputDate, "Y-m-d H:i:s");
@@ -88,7 +88,7 @@ class OfferModel
             }
             else
             {
-                $_SESSION['noPark'] = 'Non hai un parcheggio!';
+                $_SESSION['noPark'] = 'Non hai un parcheggio! Potresti avere l\'account disattivato';
                 unset($_SESSION['selectedDate']);
                 unset($_SESSION['carPlate']);
                 ViewLoader::load('offerta/index');

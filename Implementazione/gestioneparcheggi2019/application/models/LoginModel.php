@@ -32,8 +32,10 @@ class LoginModel
             $_SESSION['user_id'] = $result['id'];
             $_SESSION['ruolo'] = $result['ruolo'];
             $_SESSION['nome'] = $result['nome'];
+            $_SESSION['cognome'] = $result['cognome'];
             $_SESSION['id_posteggio'] = $result['id_posteggio'];
             $_SESSION['active'] = $result['attivo'];
+            $_SESSION['mail'] = $result['mail'];
 
             return;
         } else {

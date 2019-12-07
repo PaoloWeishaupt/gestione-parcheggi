@@ -189,6 +189,7 @@
                         <form method="post">
 
                             <select class="browser-default custom-select w-50" name="select_disp" onchange="filterDisp(this.value)" >
+                                <option value="Tutto" <?php echo ($selected == 'Tutto')?'selected':''?>>Tutto</option>
                                 <option value="Tutto il giorno" <?php echo ($selected == 'Tutto il giorno')?'selected':''?>>Tutto il giorno</option>
                                 <option value="Mattina" <?php echo ($selected == 'Mattina')?'selected':''?> >Mattina</option>
                                 <option value="Pomeriggio" <?php echo ($selected == 'Pomeriggio')?'selected':''?>>Pomeriggio</option>

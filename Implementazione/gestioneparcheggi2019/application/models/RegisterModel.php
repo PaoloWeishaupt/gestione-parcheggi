@@ -127,6 +127,12 @@ class RegisterModel
                         where mail=:mail and nome=:nome and cognome=:cognome and attivo=false
             ");
 
+            self::$statement->bindParam(':mail', $mail, PDO::PARAM_STR);
+            self::$statement->bindParam(':nome', $nome, PDO::PARAM_STR);
+            self::$statement->bindParam(':cognome', $cognome, PDO::PARAM_STR);
+
+            self::$statement->execute();
+
             ViewLoader::load('home/index', array('activationOK'=>"Il tuo account è stato attivato con successo!"));
         }else{
             ViewLoader::load('home/index', array('activationNO'=>"L'URL è invalido o il tuo account è già attivo!"));

@@ -8,6 +8,7 @@ use Libs\Application as Application;
 use Libs\Database as Database;
 use Libs\ViewLoader;
 use Libs\Auth as Auth;
+use Models\MailModel as MailModel;
 
 class ReserveModel
 {
@@ -15,6 +16,11 @@ class ReserveModel
      * @var Parcheggio del quale ricevere le informazioni.
      */
     public static $parcheggio;
+
+    /**
+     * @var Riservazione del quale ricevere le informazioni.
+     */
+    public static $riservazione;
 
     /**
      * @var Query da eseguire.
@@ -73,6 +79,27 @@ class ReserveModel
             if (Auth::isAuthenticated())
             {
                 self::$statement->execute();
+
+                self::$statement = Database::get()->prepare("select * from prenotazione
+                            where id_posteggio=:id_posteggio and id_utente=:id_utente 
+                            order by data_prenotazione desc limit 1");
+
+                self::$statement->bindParam(':id_utente', $_SESSION['user_id'], \PDO::PARAM_INT);
+                self::$statement->bindParam(':id_posteggio', $_SESSION['id_posteggio_prenotato'], \PDO::PARAM_INT);
+                self::$statement->execute();
+                self::$riservazione = self::$statement->fetch(\PDO::FETCH_ASSOC);;
+
+                self::$statement = Database::get()->prepare(
+                    "SELECT posteggio.data_disp, posteggio.disponibilita
+                        FROM posteggio
+                        WHERE posteggio.id = :id;
+                        ");
+                self::$statement->bindParam(':id', $_SESSION['id_posteggio_prenotato'], \PDO::PARAM_INT);
+                self::$statement->execute();
+                self::$parcheggio = self::$statement->fetch(\PDO::FETCH_ASSOC);
+
+                MailModel::reservationMail($_SESSION['mail'], $_SESSION['nome'], $_SESSION['cognome'], self::$parcheggio, self::$riservazione);
+
                 self::updateParcheggio();
                 unset($_SESSION['id_posteggio_prenotato']);
                 ViewLoader::load('home/index', array('prenotazioneOK'=>"Prenotazione avvenuta"));
