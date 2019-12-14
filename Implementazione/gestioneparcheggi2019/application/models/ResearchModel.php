@@ -34,7 +34,7 @@ class ResearchModel
     /**
      * Funzione che filtra i posteggi disponibili in base alle date scelte dall'utente.
      */
-    public static function filterByDate($startDate, $endDate)
+    public static function filterAll($startDate, $endDate, $disp)
     {
         $startDateFormat = date_format(date_create($startDate), "Y-m-d H:i:s");
         $endDateFormat = date_format(date_create($endDate), "Y-m-d H:i:s");
@@ -48,9 +48,19 @@ class ResearchModel
             unset($_SESSION['minDateError']);
         }
 
-        self::$statement = Database::get()->prepare("select * from posteggio where data_disp between :start_date and :end_date");
-        self::$statement->bindParam(':start_date', $startDateFormat, \PDO::PARAM_STR);
-        self::$statement->bindParam(':end_date', $endDateFormat, \PDO::PARAM_STR);
+        if($disp == "Tutto")
+        {
+            self::$statement = Database::get()->prepare("select * from posteggio where data_disp between :start_date and :end_date and data_disp is not null");
+            self::$statement->bindParam(':start_date', $startDateFormat, \PDO::PARAM_STR);
+            self::$statement->bindParam(':end_date', $endDateFormat, \PDO::PARAM_STR);
+        }
+        else
+        {
+            self::$statement = Database::get()->prepare("select * from posteggio where data_disp between :start_date and :end_date and disponibilita = :disp");
+            self::$statement->bindParam(':disp', $disp, \PDO::PARAM_STR);
+            self::$statement->bindParam(':start_date', $startDateFormat, \PDO::PARAM_STR);
+            self::$statement->bindParam(':end_date', $endDateFormat, \PDO::PARAM_STR);
+        }
         self::$statement->execute();
 
         self::$parcheggi = self::$statement->fetchAll(\PDO::FETCH_ASSOC);
@@ -61,7 +71,7 @@ class ResearchModel
     /**
      * Funzione che filtra i posteggi disponibili in base alla disponibilità scelta dall'utente.
      *
-     * @param $disp Disponibilità selezionata nel filtro.
+     * @param $disp
      */
     public static function filterByDisp($disp)
     {
@@ -71,7 +81,7 @@ class ResearchModel
         }
         else
         {
-            self::$statement = Database::get()->prepare("select * from posteggio where data_disp is not null and disponibilita = :disp");
+            self::$statement = Database::get()->prepare("select * from posteggio where disponibilita = :disp");
             self::$statement->bindParam(':disp', $disp, \PDO::PARAM_STR);
         }
         self::$statement->execute();

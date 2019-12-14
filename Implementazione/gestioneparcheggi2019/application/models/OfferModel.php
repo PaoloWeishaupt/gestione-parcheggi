@@ -54,7 +54,7 @@ class OfferModel
         }
         else
         {
-            if(Users::hasParcheggio() && $_SESSION['active']==true)
+            if(Users::hasParcheggio() && $_SESSION['active'] == true)
             {
                 $inputDate = date_create(self::$selectedDate);
                 $inputDateFormat = date_format($inputDate, "Y-m-d H:i:s");

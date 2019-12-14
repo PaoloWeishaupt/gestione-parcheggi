@@ -10,7 +10,7 @@ class PDF extends FPDF
 
     public static $pdf;
 
-    public static function cretePDF($parcheggio, $riservazione)
+    public static function createPDF($parcheggio, $riservazione)
     {
         self::$pdf = new FPDF();
         self::$pdf->AddPage();

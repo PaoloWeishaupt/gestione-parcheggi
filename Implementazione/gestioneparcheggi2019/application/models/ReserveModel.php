@@ -87,7 +87,7 @@ class ReserveModel
                 self::$statement->bindParam(':id_utente', $_SESSION['user_id'], \PDO::PARAM_INT);
                 self::$statement->bindParam(':id_posteggio', $_SESSION['id_posteggio_prenotato'], \PDO::PARAM_INT);
                 self::$statement->execute();
-                self::$riservazione = self::$statement->fetch(\PDO::FETCH_ASSOC);;
+                self::$riservazione = self::$statement->fetch(\PDO::FETCH_ASSOC);
 
                 self::$statement = Database::get()->prepare(
                     "SELECT posteggio.data_disp, posteggio.disponibilita
@@ -129,4 +129,3 @@ class ReserveModel
     }
 
 }
-

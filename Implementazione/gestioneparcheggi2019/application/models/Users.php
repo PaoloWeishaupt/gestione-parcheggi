@@ -18,7 +18,6 @@ class Users
             return true;
         }
         return false;
-
     }
 
     /**

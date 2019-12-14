@@ -29,13 +29,14 @@ class MailModel
         self::$mail->Body = "Ha ricevuto questa mail poichè lei ha effettuato la prenotazione di un posteggio.
                              Il allegato trova una copia della sua prenotazione.";
 
-        self::$mail->addStringAttachment(PDF::cretePDF($parcheggio, $riservazione), 'riservazione.pdf');
+        self::$mail->addStringAttachment(PDF::createPDF($parcheggio, $riservazione), 'riservazione.pdf');
         self::$mail->send();
     }
 
     public static function build()
     {
         self::$mail = new PHPMailer(true);
+        self::$mail->CharSet = 'UTF-8';
         self::$mail->isSMTP();
         self::$mail->Host = 'smtp.gmail.com';
         self::$mail->Port = 587;

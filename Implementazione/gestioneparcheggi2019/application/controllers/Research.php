@@ -16,20 +16,24 @@ class Research
     public function index()
     {
         $selected = null;
-        if(isset($_GET['filter_disp']))
+        if (isset($_POST['startDate']) && !empty($_POST['startDate']) && isset($_POST['endDate']) && !empty($_POST['endDate']) && isset($_POST['filter_disp']))
         {
-            $disp = Validator::testInput($_GET['filter_disp']);
-            ResearchModel::filterByDisp($disp);
+            $startDate = $_POST['startDate'];
+            $endDate = $_POST['endDate'];
+            $disp = Validator::testInput($_POST['filter_disp']);
             $selected = $disp;
-        }
-        elseif (isset($_GET['startDate']) && isset($_GET['endDate']))
-        {
-            $startDate = $_GET['startDate'];
-            $endDate = $_GET['endDate'];
 
-            ResearchModel::filterByDate($startDate, $endDate);
+            ResearchModel::filterAll($startDate, $endDate, $disp);
         }
-        else {
+        elseif (isset($_POST['filter_disp']))
+        {
+            $disp = Validator::testInput($_POST['filter_disp']);
+            $selected = $disp;
+
+            ResearchModel::filterByDisp($disp);
+        }
+        else
+        {
             ResearchModel::getParcheggiDisponibili();
         }
         ViewLoader::load('ricerca/index', array('parcheggi'=>ResearchModel::$parcheggi, 'selected' => $selected));

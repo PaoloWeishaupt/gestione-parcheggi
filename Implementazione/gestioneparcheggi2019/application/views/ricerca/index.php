@@ -57,22 +57,13 @@
             $('.dataTables_length').addClass('bs-select');
         });
 
-        function filterDate() {
-            var startDate = document.getElementById('startDate').value;
-            var endDate = document.getElementById('endDate').value;
-            window.location.href = "/gestioneparcheggi2019/research/index/?startDate=" + startDate + "&endDate=" + endDate;
-        }
-
-        function filterDisp(disp) {
-            window.location.href = "/gestioneparcheggi2019/research/index/?filter_disp=" + disp;
-        }
     </script>
 </head>
 
 <body class="img h-100">
 
 <!-- Full Page Intro -->
-<div class="mask rgba-black-strong h-100">
+<div class="mask rgba-black-strong">
     <!--Main Navigation-->
     <header>
 
@@ -162,46 +153,48 @@
 
                 <div class="row justify-content-center align-items-center text-center mb-4">
 
-                    <div class="col-6">
+                    <form method="post" action="<?php echo URL.'research/index'; ?>">
+                        <div class="col">
 
-                        <p class="text-white font-weight-bold">Inserisci le date da cercare:</p>
+                            <p class="text-white font-weight-bold">Inserisci le date da cercare:</p>
 
-                        <div class="input-group justify-content-center">
+                            <div class="input-group justify-content-center">
 
-                            <p class="text-white font-weight-bold ml-3 mr-3">Dal </p>
+                                <input type="text" id="startDate" name="startDate" class="datepicker">
 
-                            <input type="text" id="startDate" name="startDate" class="datepicker">
+                                <p class="text-white font-weight-bold ml-3 mr-3"> al </p>
 
-                            <p class="text-white font-weight-bold ml-3 mr-3"> al </p>
+                                <input type="text" id="endDate" name="endDate" class="datepicker">
 
-                            <input type="text" id="endDate" name="endDate" class="datepicker">
-
-                            <input type="submit" value="Cerca" class="button btn-primary ml-3" onclick="filterDate()">
+                            </div>
 
                         </div>
 
-                    </div>
+                        <div class="col">
 
-                    <div class="col-6">
+                            <p class="text-white font-weight-bold"><br>Inserisci la disponibilità:</p>
 
-                        <p class="text-white font-weight-bold">Inserisci la disponibilità:</p>
+                            <div class="input-group justify-content-center">
 
-                        <form method="post">
+                                <select class="browser-default custom-select w-50" name="filter_disp" id="disp">
+                                    <option value="Tutto" <?php echo ($selected == 'Tutto')?'selected':''?>>Tutto</option>
+                                    <option value="Tutto il giorno" <?php echo ($selected == 'Tutto il giorno')?'selected':''?>>Tutto il giorno</option>
+                                    <option value="Mattina" <?php echo ($selected == 'Mattina')?'selected':''?>>Mattina</option>
+                                    <option value="Pomeriggio" <?php echo ($selected == 'Pomeriggio')?'selected':''?>>Pomeriggio</option>
+                                </select>
 
-                            <select class="browser-default custom-select w-50" name="select_disp" onchange="filterDisp(this.value)" >
-                                <option value="Tutto" <?php echo ($selected == 'Tutto')?'selected':''?>>Tutto</option>
-                                <option value="Tutto il giorno" <?php echo ($selected == 'Tutto il giorno')?'selected':''?>>Tutto il giorno</option>
-                                <option value="Mattina" <?php echo ($selected == 'Mattina')?'selected':''?> >Mattina</option>
-                                <option value="Pomeriggio" <?php echo ($selected == 'Pomeriggio')?'selected':''?>>Pomeriggio</option>
-                            </select>
+                            </div>
 
-                        </form>
+                            <br>
+                            <input type="submit" value="Cerca" class="button btn-primary ml-3">
 
-                    </div>
+                        </div>
+
+                    </form>
 
                 </div>
 
-                <div class="row justify-content-center text-center mb-3">
+                <div class="row justify-content-center text-center">
 
                     <table id="dtBasicExample" class="table table-striped table-bordered table-responsive text-color font">
 
