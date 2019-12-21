@@ -34,6 +34,7 @@ class PDF extends FPDF
         // Header della tabella
         self::$pdf->SetFont('Arial','B',12);
         for($i=0;$i<count($header);$i++)
+            // Inserisco l'header
             self::$pdf->Cell($w[$i],7,$header[$i],1,0,'C');
         self::$pdf->Ln();
         // Font del body
